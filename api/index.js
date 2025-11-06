@@ -7,7 +7,14 @@ const INSTANCES = [
 ];
 
 export default async function handler(request) {
-  const url = new URL(request.url);
+  // Construct full URL from request
+  const host = request.headers.get('host') || request.headers.get('x-forwarded-host');
+  const protocol = request.headers.get('x-forwarded-proto') || 'https';
+  const fullUrl = request.url.startsWith('http') 
+    ? request.url 
+    : `${protocol}://${host}${request.url}`;
+  
+  const url = new URL(fullUrl);
   const path = url.pathname.substring(1); // Remove leading slash
   const query = url.search;
   
