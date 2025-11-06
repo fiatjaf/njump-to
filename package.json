@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Fast redirect service that randomly forwards to njump instances",
   "main": "api/index.js",
+  "type": "module",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "node dev-server.js",
+    "dev:vercel": "vercel dev",
     "deploy": "vercel"
   },
   "devDependencies": {
