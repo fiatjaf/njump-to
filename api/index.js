@@ -1,3 +1,7 @@
+export const config = {
+  runtime: 'edge',
+};
+
 const INSTANCES = [
   'https://njump.me',
   'https://nostr.at',
