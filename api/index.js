@@ -7,16 +7,36 @@ const INSTANCES = [
 ];
 
 export default async function handler(request) {
-  // Construct full URL from request
-  const host = request.headers.get('host') || request.headers.get('x-forwarded-host');
-  const protocol = request.headers.get('x-forwarded-proto') || 'https';
-  const fullUrl = request.url.startsWith('http') 
-    ? request.url 
-    : `${protocol}://${host}${request.url}`;
+  // Get path and query from request URL
+  let path = '';
+  let query = '';
   
-  const url = new URL(fullUrl);
-  const path = url.pathname.substring(1); // Remove leading slash
-  const query = url.search;
+  try {
+    let url;
+    
+    // Check if request.url is already a full URL
+    if (request.url && request.url.startsWith('http')) {
+      url = new URL(request.url);
+    } else {
+      // Construct full URL from headers
+      const host = request.headers.get('host') || 
+                   request.headers.get('x-forwarded-host') || 
+                   'localhost';
+      const protocol = request.headers.get('x-forwarded-proto') || 'https';
+      const requestPath = request.url || '/';
+      url = new URL(requestPath, `${protocol}://${host}`);
+    }
+    
+    path = url.pathname.substring(1); // Remove leading slash
+    query = url.search;
+  } catch (error) {
+    // Fallback: parse manually if URL construction fails
+    const requestPath = request.url || '/';
+    const pathMatch = requestPath.match(/^([^?]*)/);
+    const queryMatch = requestPath.match(/\?(.*)$/);
+    path = pathMatch ? pathMatch[1].substring(1) : '';
+    query = queryMatch ? `?${queryMatch[1]}` : '';
+  }
   
   // Randomly select instance
   const instance = INSTANCES[Math.floor(Math.random() * INSTANCES.length)];
