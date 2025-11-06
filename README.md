@@ -9,7 +9,7 @@ Don't know what njump is? Learn more at [njump.me/about](https://njump.me/about)
 The service provides a single, memorable URL (`njump.to`) that automatically forwards to a random njump mirror, eliminating the need to remember or choose between multiple instances.
 
 - Randomly selects from: njump.me, nostr.at, nostr.eu, nostr.ae, nostr.com
-- Preserves all paths and query parameters
+- Preserves all paths, query parameters, and hash fragments
 - Zero dependencies, minimal code
 
 ## Examples
