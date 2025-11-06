@@ -4,7 +4,7 @@ Fast, reliable redirect service that randomly forwards users to available njump 
 
 ## How it works
 
-- Randomly selects from: njump.me, nostr.at, nostr.eu, nostr.ae
+- Randomly selects from: njump.me, nostr.at, nostr.eu, nostr.ae, nostr.com
 - Preserves all paths and query parameters
 - Runs on Vercel's edge network for sub-10ms response times
 - Zero dependencies, minimal code
@@ -56,6 +56,6 @@ Follow the prompts to link your project.
 
 - **Runtime**: Vercel Edge Runtime (runs at edge locations worldwide)
 - **Function**: Single edge function at `api/index.js`
-- **Instances**: 4 njump mirrors for redundancy
+- **Instances**: 5 njump mirrors for redundancy
 - **No dependencies**: Pure JavaScript using Web APIs
 

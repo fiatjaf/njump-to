@@ -2,7 +2,8 @@ const INSTANCES = [
   'https://njump.me',
   'https://nostr.at',
   'https://nostr.eu',
-  'https://nostr.ae'
+  'https://nostr.ae',
+  'https://nostr.com'
 ];
 
 export default async function handler(request) {
