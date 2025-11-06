@@ -2,7 +2,7 @@
 
 Fast, reliable redirect service that provides a single URL (`https://njump.to/`) that automatically forwards users to a random njump mirror instance. Deployed on Vercel Edge Functions for maximum speed and global distribution.
 
-**Live at: [njump.to/](https://njump.to/)**
+**Live at: [njump.to](https://njump.to/)**
 
 > Don't know what njump is? Learn more at [njump.me/about](https://njump.me/about) or check out the source code at [github.com/fiatjaf/njump](https://github.com/fiatjaf/njump)
 
@@ -14,6 +14,13 @@ The service provides a single, memorable URL (`https://njump.to/`) that automati
 - Preserves all paths and query parameters
 - Runs on Vercel's edge network for sub-10ms response times
 - Zero dependencies, minimal code
+
+### Examples
+
+- `https://njump.to/` → redirects to random njump instance
+- `https://njump.to/npub1abc...` → redirects to random instance with the npub
+- `https://njump.to/nevent1xyz...` → redirects to random instance with the nevent
+- `https://njump.to/nostr.com` → redirects to random instance with NIP-05 profile
 
 ## Mirror List
 
@@ -62,13 +69,6 @@ Follow the prompts to link your project.
 4. Update your DNS records as instructed by Vercel:
    - Add the CNAME or A record provided by Vercel
    - Wait for DNS propagation (usually a few minutes)
-
-## Examples
-
-- `https://njump.to/` → redirects to random njump instance
-- `https://njump.to/npub1abc...` → redirects to random instance with the npub
-- `https://njump.to/nevent1xyz...` → redirects to random instance with the nevent
-- `https://njump.to/nostr.com` → redirects to random instance with NIP-05 profile
 
 ## Architecture
 
