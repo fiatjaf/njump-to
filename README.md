@@ -4,7 +4,7 @@ Fast, reliable redirect service that provides a single URL (`https://njump.to/`)
 
 **Live at: [https://njump.to/](https://njump.to/)**
 
-> Don't know what njump is? Learn more at [https://njump.me/about](https://njump.me/about)
+> Don't know what njump is? Learn more at [https://njump.me/about](https://njump.me/about) or check out the source code at [https://github.com/fiatjaf/njump](https://github.com/fiatjaf/njump)
 
 ## How it works
 
