@@ -47,7 +47,6 @@ Note that [njump.me/dergigi.com](https://njump.me/dergigi.com) resolves just fin
 
 ## Contributors
 
-<!-- markdownlint-disable MD033 -->
 <div align="center">
 
 <a href="https://github.com/dergigi/njump-to/graphs/contributors">
@@ -55,4 +54,3 @@ Note that [njump.me/dergigi.com](https://njump.me/dergigi.com) resolves just fin
 </a>
 
 </div>
-<!-- markdownlint-enable MD033 -->
