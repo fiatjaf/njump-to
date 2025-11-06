@@ -32,3 +32,9 @@ The service randomly forwards to one of the following njump mirror instances:
 - [nostr.com](https://nostr.com)
 
 Want to add a mirror? Please open a PR!
+
+## Contributors
+
+<a align="center" href="https://github.com/dergigi/njump-to/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dergigi/njump-to" />
+</a>
