@@ -58,4 +58,3 @@ Follow the prompts to link your project.
 - **Function**: Single edge function at `api/index.js`
 - **Instances**: 5 njump mirrors for redundancy
 - **No dependencies**: Pure JavaScript using Web APIs
-
