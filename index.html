@@ -11,9 +11,10 @@
       "https://nostr.com"
     ];
 
-    // Get the current path and query string
+    // Get the current path, query string, and hash
     var path = window.location.pathname.substring(1); // Remove leading slash
     var query = window.location.search; // Includes the '?' if present
+    var hash = window.location.hash; // Includes the '#' if present
 
     // Randomly select an instance
     var randomIndex = Math.floor(Math.random() * targetUrls.length);
@@ -21,8 +22,8 @@
 
     // Build the target URL
     var targetUrl = path 
-      ? selectedInstance + '/' + path + query 
-      : selectedInstance + query;
+      ? selectedInstance + '/' + path + query + hash
+      : selectedInstance + query + hash;
 
     // Redirect immediately
     window.location.href = targetUrl;
