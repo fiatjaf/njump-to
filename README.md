@@ -47,6 +47,12 @@ Note that [njump.me/dergigi.com](https://njump.me/dergigi.com) resolves just fin
 
 ## Contributors
 
-<a align="center" href="https://github.com/dergigi/njump-to/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=dergigi/njump-to" />
+<!-- markdownlint-disable MD033 -->
+<div align="center">
+
+<a href="https://github.com/dergigi/njump-to/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dergigi/njump-to" alt="Contributors" />
 </a>
+
+</div>
+<!-- markdownlint-enable MD033 -->
