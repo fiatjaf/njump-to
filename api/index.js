@@ -1,4 +1,4 @@
-import { LRUCache } from './lru.js';
+import { Redis } from '@upstash/redis';
 
 export const config = {
   runtime: 'edge',
@@ -12,7 +12,7 @@ const INSTANCES = [
   'https://nostr.com'
 ];
 
-const cache = new LRUCache();
+const redis = Redis.fromEnv();
 
 // Helper to get header value (works with both Headers object and plain object)
 function getHeader(headers, name) {
@@ -23,12 +23,23 @@ function getHeader(headers, name) {
   return headers[name] || headers[name.toLowerCase()] || null;
 }
 
-function getTargetUrl(path, query) {
-  let instance = cache.get(path);
+async function getTargetUrl(path, query) {
+  let instance = null;
+
+  try {
+    instance = await redis.get(path);
+  } catch (error) {
+    console.error('Redis GET failed, falling back to random instance:', error);
+  }
 
   if (!instance) {
     instance = INSTANCES[Math.floor(Math.random() * INSTANCES.length)];
-    cache.set(path, instance);
+    try {
+      // Cache for 24 hours, but don't block on failure
+      await redis.set(path, instance, { ex: 86400 });
+    } catch (error) {
+      console.error('Redis SET failed:', error);
+    }
   }
 
   return path ? `${instance}/${path}${query}` : `${instance}${query}`;
@@ -54,5 +65,6 @@ export default async function handler(request) {
     query = queryPart ? `?${queryPart}` : '';
   }
   
-  return Response.redirect(getTargetUrl(path, query), 302);
+  const targetUrl = await getTargetUrl(path, query);
+  return Response.redirect(targetUrl, 302);
 }
